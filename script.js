@@ -20,10 +20,18 @@ function soundAlarm() {
 }
 
 function updateValue(key, value) {
+    
+    //Removes first 0's in case of keyboard input
+    value=Number(value)
+
     if (value<0) {
         value=0;
         console.log("Positive Numbers only");
-    }
+    } else if (value>300) {
+        value=300
+    } 
+
+    
 
     if (key === 'seconds') {
         if(value<10) {
@@ -41,7 +49,6 @@ function updateValue(key, value) {
 
 (function detectChanges(key) {
     let input = "#" + key + "-input";
-    console.log(input)
     $(input).change(function(){
         updateValue(key, $(input).val());
     });

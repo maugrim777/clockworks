@@ -22,6 +22,7 @@ function soundAlarm() {
 function updateValue(key, value) {
     
     //Removes first 0's in case of keyboard input
+    if (value === 'e' || value==='E') {value=''}
     value=Number(value)
 
     if (value<0) {
